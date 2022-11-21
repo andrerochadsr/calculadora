@@ -1,48 +1,38 @@
 
-function opera(num) {
-    /*const plus = [];
-    const multi = [];
-    const minus = [];
-    const div = [];
-    const operador = document.getElementById('op').value;
-    if (operador == '+') {
-        
-        plus.push(document.getElementById('i/o').value);
-        console.log(plus)
-        
-    }
-    if (operador == '-') {
-        minus.push(document.getElementById('i/o').value)
-        console.log(minus)
-    } */
-
-    
-    const numero = (num) => {
-        return parseInt(num);
-    };
-    //console.log(numero(num))
-    
-    const nume = num;
-    //console.log(nume)
-    document.getElementById('i/o').value += nume;
+function numeroTela(num) {
+    document.getElementById('ivisor').value += num;
 }
-function result() {
-    const resultado = document.getElementById('i/o').value;
-    //console.log(resultado)
-    if (resultado.includes('+')) {
-        
-        const re = resultado.split('+')
-        //console.log(re)
-        re.forEach((element) => {
-            const numero = parseInt(element);
-            const soma = numero+numero;
+
+
+function operaMais() {
+    const opera = document.getElementById('op+').value;
+    document.getElementById('ivisor').value += opera;
+    const visor = document.getElementById('ivisor').value;
+    console.log(opera)
+    if (visor.includes('+')) {
+        const numeros = visor.split('+');
+        if (numeros.length >= 3) {
+            const num1 = parseInt(numeros[0]);
+            const num2 = parseInt(numeros[1]);
+            const soma = num1 + num2;
             console.log(soma);
-            return soma;
-        });
-        console.log(re);
+            document.getElementById('ivisor').value = soma;
+        }
     }
-    
-    
+}
 
-
+function operaMenos() {
+    const opera = document.getElementById('op-').value;
+    document.getElementById('ivisor').value += opera;
+    const visor = document.getElementById('ivisor').value;
+    if (visor.includes('-')) {
+        const numeros = visor.split('-');
+        if (numeros.length >= 3) {
+            const num1 = parseInt(numeros[0]);
+            const num2 = parseInt(numeros[1]);
+            const sub = num1 - num2;
+            console.log(sub);
+            document.getElementById('ivisor').value = sub;
+        }
+    }
 }
